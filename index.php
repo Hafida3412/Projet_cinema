@@ -20,11 +20,11 @@ if(isset($_GET["action"])){
     }
 }
 
-$id = (isset($_GET["id"])) ? $GET["id"] : null;
+$id = (isset($_GET["id"])) ? $_GET["id"] : null;
 //$type = (isset($_GET["type"])) ? $GET["type"] : null;
 
 if(isset($_GET["action"])){
-    switch ($GET["action"]){
+    switch ($_GET["action"]){
         //Films
         case "listFilms": $ctrlCinema->listFilms(); break;
         case "detailFilm": $ctrlCinema->detailFilm($id); break;  
@@ -37,9 +37,4 @@ faire un "execute".
 Dans le "execute", on fait passer un tableau associatif qui associe
 le champ paramètré avec la valeur de l'id*/
 
-public function detActeur($id){
-    $pdo = Connect::seConnecter();
-    $requete = $pdo->prepare("SELECT * FROM acteur WHERE id_acteur = :id");
-    $requete->execute(["id"=>$id]);
-    require "view/acteur/detailActeur.php";
-}
+

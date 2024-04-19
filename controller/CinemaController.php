@@ -18,4 +18,11 @@ class CinemaController{
         //On relie par un "require" la vue qui nous intéresse (située dans le dossier "view")
         require "view/listFilms.php";
     }
+
+    public function detActeur($id){
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->prepare("SELECT * FROM acteur WHERE id_acteur = :id");
+        $requete->execute(["id"=>$id]);
+        require "view/acteur/detailActeur.php";
+    }
 }

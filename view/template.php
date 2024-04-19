@@ -8,7 +8,7 @@
     <title><?= $titre ?></title>
 </head>
 <body>
-    <nav class="uk-navbar-container" uk-navbar uk-sti>
+    <nav class="uk-navbar-container" uk-navbar uk-sticky>
       </nav>
 <div id="wrapper" class="uk-container uk-container-expand">
     <main>
