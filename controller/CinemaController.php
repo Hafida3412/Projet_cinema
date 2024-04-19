@@ -25,4 +25,22 @@ class CinemaController{
         $requete->execute(["id"=>$id]);
         require "view/acteur/detailActeur.php";
     }
+
+    public function detailFilm($id){
+        $pdo = Connect::seConnecter();
+        $requeteFilm = $pdo->prepare('SELECT * FROM film WHERE id_film = :id');
+        $requeteFilm->execute([':id' => $id]);
+        
+        require "view/detailFilm.php";
+    }
 }
+
+/*// prepare la requête avec un paramètre variable 
+$stmt = $pdo->prepare("SELECT * FROM acteurs WHERE id = :id");
+
+// execute la requête en passant l'id sous forme de tableau associatif 
+$stmt->execute(array('id' => $id));
+
+// récupère le résultat de la requête et l'affiche 
+$result = $stmt->fetch(); 
+echo $result['nom']; // exemple de récupération d'un champ "nom"*/

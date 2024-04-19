@@ -16,7 +16,7 @@ if(isset($_GET["action"])){
     switch ($_GET["action"]){
 
         case "listFilms" : $ctrlCinema->listFilms(); break;
-        case "listActeurs" : $ctrlCinema->listActeurs(); break;
+        /*case "listActeurs" : $ctrlCinema->listActeurs(); break;*/
     }
 }
 
@@ -28,6 +28,7 @@ if(isset($_GET["action"])){
         //Films
         case "listFilms": $ctrlCinema->listFilms(); break;
         case "detailFilm": $ctrlCinema->detailFilm($id); break;  
+        case "detActeur": $ctrlCinema->detActeur($id); break;
     }
 }
 
@@ -36,5 +37,4 @@ comme ici l'id de l'acteur), il faut faire un "prepare" pour ensuite
 faire un "execute".
 Dans le "execute", on fait passer un tableau associatif qui associe
 le champ paramètré avec la valeur de l'id*/
-
 
