@@ -32,6 +32,7 @@ if(isset($_GET["action"])){
     }
 }
 
+
 /*Quand vous faîtes une requête dans lequel on a un élément variable(
 comme ici l'id de l'acteur), il faut faire un "prepare" pour ensuite 
 faire un "execute".

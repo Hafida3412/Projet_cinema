@@ -1,6 +1,14 @@
-<?php ob_start(); ?><!--pour commencer la vue-->
+<?php 
 
-<p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount() ?> films</p>
+ob_start(); ?><!--pour commencer la vue-->
+<?php
+// Assurez-vous d'initialiser la variable $requete avant de l'utiliser
+$requeteFilm = $pdo->prepare('SELECT * FROM film WHERE id_film = :id');
+$requeteFilm->execute([':id' => $id]);// votre requête SQL ici;
+
+?>
+ 
+<p class="uk-label uk-label-warning">Il y a <?= $requeteFilm->rowCount() ?> films</p>
 
 <table class="uk-table uk-table-striped">
     <thead>
@@ -11,10 +19,10 @@
     </thead>
    <tbody>
     <?php 
-        foreach ($requete->fetchAll() as $film){ ?>
+        foreach ($requeteFilm->fetchAll() as $film){ ?>
         <tr>
-            <td><?+ $film["titre"] ?></td>
-            <td><?+ $film["annee_sortie"] ?></td>  
+            <td><?= $film["titre"] ?></td>
+            <td><?= $film["annee_sortie"] ?></td>  
         </tr>
     <?php } ?>    
    </tbody>
@@ -34,3 +42,5 @@ dans le template "squelette" > <template class="php"></template>
 éléments provenant des vues.
 Dans CHAQUE VUE, il faudra donner une valeur à:
 $titre, $contenu et $titre_secondaire*/
+
+
