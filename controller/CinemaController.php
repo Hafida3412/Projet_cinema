@@ -15,8 +15,10 @@ class CinemaController{
         $requete = $pdo->query("
             SELECT titre, annee_sortie_france FROM film"
         );
+        
         //On relie par un "require" la vue qui nous intéresse (située dans le dossier "view")
         require "view/listFilms.php";
     }
 
     }
+  

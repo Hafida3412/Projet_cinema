@@ -3,10 +3,10 @@
 ob_start(); ?><!--pour commencer la vue-->
 
  
-<p>Il y a <?= $requete->rowCount() ?> films</p>
+<p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount() ?> films</p>
 
 
-<table>
+<table class="uk-table uk-table-striped">
     <thead>
         <tr>
             <th>TITRE</th>
@@ -14,13 +14,13 @@ ob_start(); ?><!--pour commencer la vue-->
         </tr>
     </thead>
    <tbody>
-    <?php 
-        foreach ($requete->fetchAll() as $film){ ?>
-        <tr>
-            <td><?= $film["titre"] ?></td>
-            <td><?= $film["annee_sortie_france"] ?></td>  
-        </tr>
-    <?php } ?>    
+    <?php
+        foreach ($requete->fetchAll() as $film){ 
+        echo "<tr>";
+        echo "<td>".$film["titre"]. "</td>";
+        echo "<td>". $film["annee_sortie_france"]."</td>"; 
+        echo "</tr>";
+    } ?>    
    </tbody>
 </table>
         
