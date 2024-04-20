@@ -1,16 +1,12 @@
 <?php 
 
 ob_start(); ?><!--pour commencer la vue-->
-<?php
-// Assurez-vous d'initialiser la variable $requete avant de l'utiliser
-$requeteFilm = $pdo->prepare('SELECT * FROM film WHERE id_film = :id');
-$requeteFilm->execute([':id' => $id]);// votre requête SQL ici;
 
-?>
  
-<p class="uk-label uk-label-warning">Il y a <?= $requeteFilm->rowCount() ?> films</p>
+<p>Il y a <?= $requete->rowCount() ?> films</p>
 
-<table class="uk-table uk-table-striped">
+
+<table>
     <thead>
         <tr>
             <th>TITRE</th>
@@ -19,15 +15,15 @@ $requeteFilm->execute([':id' => $id]);// votre requête SQL ici;
     </thead>
    <tbody>
     <?php 
-        foreach ($requeteFilm->fetchAll() as $film){ ?>
+        foreach ($requete->fetchAll() as $film){ ?>
         <tr>
             <td><?= $film["titre"] ?></td>
-            <td><?= $film["annee_sortie"] ?></td>  
+            <td><?= $film["annee_sortie_france"] ?></td>  
         </tr>
     <?php } ?>    
    </tbody>
 </table>
-
+        
 <?php
 
 $titre = "Liste des films";

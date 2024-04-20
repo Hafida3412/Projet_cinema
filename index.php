@@ -8,6 +8,9 @@ spl_autoload_register(function($class_name){
     include $class_name . '.php';
 });
 
+$id = (isset($_GET["id"])) ? $_GET["id"] : "";
+//$type = (isset($_GET["type"])) ? $GET["type"] : null;
+
 //On instancie le controller Cinema
 $ctrlCinema = new CinemaController();
 /*En fonction de l'action détectée dans l'URL via la propriété "action"
@@ -16,16 +19,8 @@ if(isset($_GET["action"])){
     switch ($_GET["action"]){
      //Film
      case "listFilms" : $ctrlCinema->listFilms(); break; 
-     case "listActeurs" : $ctrlCinema->listActeurs(); break; 
-     case "detailFilm": $id = (isset($_GET["id"])) ? $_GET["id"] : null; 
-     $ctrlCinema->detailFilm($id); break;
-     case  "detailActeur": $id = (isset($_GET["id"])) ? $_GET["id"] : null; 
-     $ctrlCinema->detailActeur($id); break; 
-    }
+         }
 }
-
-//$id = (isset($_GET["id"])) ? $_GET["id"] : null;
-//$type = (isset($_GET["type"])) ? $GET["type"] : null;
 
 
 /*Quand vous faîtes une requête dans lequel on a un élément variable(
