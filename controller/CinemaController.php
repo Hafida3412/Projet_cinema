@@ -26,6 +26,15 @@ class CinemaController{
         inner join acteur ON personne.id_personne = acteur.id_personne");
        require "view/listActeurs.php";
        }
+
+       public function listRealisateurs(){
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->query("SELECT nom, prenom
+            FROM personne 
+            inner join realisateur ON personne.id_personne = realisateur.id_personne
+            ORDER BY nom ASC");
+       require "view/listRealisateurs.php";
+       } 
     }
     
   

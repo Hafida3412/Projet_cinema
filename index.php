@@ -23,7 +23,9 @@ if(isset($_GET["action"])){
         $ctrlCinema->listFilms(); break; 
      case "listActeurs" : 
         $ctrlCinema->listActeurs(); break;
-         }
+        case "listRealisateurs" : 
+            $ctrlCinema->listRealisateurs(); break;
+                      }
 }
 
 /*Quand vous faîtes une requête dans lequel on a un élément variable(
