@@ -12,7 +12,7 @@ class CinemaController{
         //On se connecte
         $pdo = Connect::seConnecter();
         //On exécute la requête de notre choix
-        $requete = $pdo->query(" SELECT titre, annee_sortie_france FROM film");
+        $requete = $pdo->query("SELECT titre, annee_sortie_france FROM film");
 
     
         //On relie par un "require" la vue qui nous intéresse (située dans le dossier "view")

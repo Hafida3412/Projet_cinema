@@ -2,7 +2,7 @@
 
 ob_start(); ?><!--pour commencer la vue-->
 
- 
+
 <p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount() ?> films</p>
 
 
@@ -25,6 +25,9 @@ ob_start(); ?><!--pour commencer la vue-->
 </table>
 
 <?php
+
+$count = $requete->rowCount();
+echo "Nombre de films : " . $count;
 
 $titre = "Liste des films";
 $titre_secondaire = "Liste des films";
