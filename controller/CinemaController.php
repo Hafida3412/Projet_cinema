@@ -27,29 +27,44 @@ class CinemaController{
        require "view/listActeurs.php";
        }
 
-       public function listRealisateurs(){
+    public function listRealisateurs(){
         $pdo = Connect::seConnecter();
         $requete = $pdo->query("SELECT nom, prenom
-            FROM personne 
-            inner join realisateur ON personne.id_personne = realisateur.id_personne
-            ORDER BY nom ASC");
+        FROM personne 
+        inner join realisateur ON personne.id_personne = realisateur.id_personne
+        ORDER BY nom ASC");
        require "view/listRealisateurs.php";
        } 
 
-       public function listGenres(){
+    public function listGenres(){
         $pdo = Connect::seConnecter();
         $requete = $pdo->query(" SELECT nom_genre
         FROM genre ORDER BY nom_genre ASC");
-       require "view/listGenres.php";
+        require "view/listGenres.php";
        } 
 
-       public function listRoles(){
+    public function listRoles(){
         $pdo = Connect::seConnecter();
         $requete = $pdo->query(" SELECT nom_role
         FROM role
         ORDER BY nom_role ASC");
-
-       require "view/listRoles.php";
+        require "view/listRoles.php";
        } 
+
+    public function film($id){
+        $pdo = Connect::seConnecter(); 
+        $requete = $pdo->prepare("SELECT titre, annee_sortie_france,
+        TIME_FORMAT(SEC_TO_TIME(duree_minutes*60), '%H:%i')
+        , nom, prenom FROM film 
+        INNER JOIN realisateur 
+        ON film.id_realisateur = realisateur.id_realisateur 
+        INNER JOIN personne 
+        ON personne.id_personne = realisateur.id_personne 
+        WHERE film.id_film = :id"); 
+
+        $requete->execute( ["id" => $id] );
+        require "view/film.php"; 
+    }
+
 }
   

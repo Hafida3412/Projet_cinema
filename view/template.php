@@ -9,6 +9,13 @@
 </head>
 <body>
     <nav class="uk-navbar-container" uk-navbar uk-sticky>
+    <ul>
+                <li><a href="index.php?action=listFilms">films</a></li>
+                <li><a href="index.php?action=listActeurs">acteurs</a></li>
+                <li><a href="index.php?action=listRealisateurs">realisateurs</a></li>
+                <li><a href="index.php?action=listGenres">genres</a></li>
+                <li><a href="index.php?action=listRoles">roles</a></li>
+                            </ul>
               </nav>
 <div id="wrapper" class="uk-container uk-container-expand">
     <main>
