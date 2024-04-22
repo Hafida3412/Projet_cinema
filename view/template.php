@@ -9,7 +9,7 @@
 </head>
 <body>
     <nav class="uk-navbar-container" uk-navbar uk-sticky>
-      </nav>
+              </nav>
 <div id="wrapper" class="uk-container uk-container-expand">
     <main>
         <div id="contenu">

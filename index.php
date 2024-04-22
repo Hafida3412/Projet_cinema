@@ -19,7 +19,10 @@ on interagit avec la bonne méthode du controller*/
 if(isset($_GET["action"])){
     switch ($_GET["action"]){
      //Film
-     case "listFilms" : $ctrlCinema->listFilms(); break; 
+     case "listFilms" : 
+        $ctrlCinema->listFilms(); break; 
+     case "listActeurs" : 
+        $ctrlCinema->listActeurs(); break;
          }
 }
 
