@@ -26,9 +26,6 @@ ob_start(); ?><!--pour commencer la vue-->
 
 <?php
 
-$count = $requete->rowCount();
-echo "Nombre de films : " . $count;
-
 $titre = "Liste des films";
 $titre_secondaire = "Liste des films";
 $contenu = ob_get_clean();/*"ob_get_clean()" pour terminer la vue
