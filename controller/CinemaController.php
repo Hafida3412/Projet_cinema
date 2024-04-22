@@ -23,7 +23,7 @@ class CinemaController{
         $pdo = Connect::seConnecter();
         $requete = $pdo->query("SELECT nom, prenom
         FROM personne 
-        inner join acteur ON personne.id_personne = acteur.id_personne");
+        inner join acteur ON personne.id_personne = acteur.id_personne ORDER BY nom ASC");
        require "view/listActeurs.php";
        }
 
@@ -35,6 +35,21 @@ class CinemaController{
             ORDER BY nom ASC");
        require "view/listRealisateurs.php";
        } 
-    }
-    
+
+       public function listGenres(){
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->query(" SELECT nom_genre
+        FROM genre ORDER BY nom_genre ASC");
+       require "view/listGenres.php";
+       } 
+
+       public function listRoles(){
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->query(" SELECT nom_role
+        FROM role
+        ORDER BY nom_role ASC");
+
+       require "view/listRoles.php";
+       } 
+}
   
