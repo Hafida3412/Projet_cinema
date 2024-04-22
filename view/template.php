@@ -14,7 +14,7 @@
     <main>
         <div id="contenu">
             <h1 class="uk-heading-divider">PDO Cinema</h1>
-            <h2 class="uk-heading-bullet"><?= $titre_secondaire ?></h2>
+             <h2 class="uk-heading-bullet"><?= $titre_secondaire ?></h2>
             <?= $contenu ?>
     </div>
 </main>

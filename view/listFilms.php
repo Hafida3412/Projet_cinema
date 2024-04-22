@@ -7,23 +7,23 @@ ob_start(); ?><!--pour commencer la vue-->
 
 
 <table class="uk-table uk-table-striped">
-    <thead>
+   <thead>
         <tr>
             <th>TITRE</th>
             <th>ANNEE SORTIE</th>
         </tr>
     </thead>
-   <tbody>
-    <?php
-        foreach ($requete->fetchAll() as $film){ 
-        echo "<tr>";
-        echo "<td>".$film["titre"]. "</td>";
-        echo "<td>". $film["annee_sortie_france"]."</td>"; 
-        echo "</tr>";
-    } ?>    
-   </tbody>
+    <tbody>
+        <?php
+            foreach($requete->fetchAll() as $film) { ?>
+                <tr>
+                    <td><?= $film["titre"] ?></td>
+                    <td><?= $film["annee_sortie"] ?></td>
+                </tr>
+        <?php    } ?>
+    </tbody>
 </table>
-        
+
 <?php
 
 $titre = "Liste des films";
