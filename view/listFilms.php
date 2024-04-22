@@ -18,7 +18,7 @@ ob_start(); ?><!--pour commencer la vue-->
             foreach($requete->fetchAll() as $film) { ?>
                 <tr>
                     <td><?= $film["titre"] ?></td>
-                    <td><?= $film["annee_sortie"] ?></td>
+                    <td><?= $film["annee_sortie_france"] ?></td>
                 </tr>
         <?php    } ?>
     </tbody>
