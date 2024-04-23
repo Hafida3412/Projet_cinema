@@ -5,11 +5,11 @@ ob_start(); ?><!--pour commencer la vue-->
 <?php
 
 $acteur = $requeteActeur->fetch(); 
-echo $acteur["identite"];
+echo $acteur["identite"] .":";
 
 $filmographie = $requeteFilmographie->fetchAll(); 
 foreach($filmographie as $film) { 
-    echo " a joué dans le film " .$film["titre"] . " ,le rôle de " . $film["nomRole"]."."; 
+    echo " - a joué le rôle de " .$film["nomRole"] . " , dans le film: " . $film["titre"]."."; 
     echo "<br>";
     echo "<br>";
 }
