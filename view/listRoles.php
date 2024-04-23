@@ -17,7 +17,7 @@ ob_start(); ?><!--pour commencer la vue-->
         <?php
             foreach($requete->fetchAll() as $role) { ?>
                 <tr>
-                    <td><?= $role["nom_role"] ?></td>
+                <td><a href="index.php?action=role&id=<?= $role['id_role'] ?>"><?= $role['nom_role'] ?></a></td>
                 </tr>
         <?php    } ?>
     </tbody>

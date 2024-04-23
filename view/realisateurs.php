@@ -6,6 +6,7 @@ ob_start(); ?><!--pour commencer la vue-->
 
 $realisateurs = $requeteRealisateurs->fetch(); 
 echo $realisateurs["identite"] .":";
+echo"<br>";
 
 $detailRealisateurs =  $requeteDetailRealisateurs->fetchAll(); 
 foreach($detailRealisateurs as $film) { 
