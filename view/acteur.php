@@ -5,18 +5,20 @@ ob_start(); ?><!--pour commencer la vue-->
 <?php
 
 $acteur = $requeteActeur->fetch(); 
-echo $acteur["acteur"];
+echo $acteur["identite"];
 
 $filmographie = $requeteFilmographie->fetchAll(); 
-foreach($filmographie as $cast) { 
-    echo " a joué dans le film" . $cast["film"] . " , le rôle de ". $cast["role"]; 
+foreach($filmographie as $film) { 
+    echo " a joué dans le film " .$film["titre"] . " ,le rôle de " . $film["nomRole"]."."; 
+    echo "<br>";
     echo "<br>";
 }
+
 
 ?>            
 <?php
 
-$titre = "Détail de l'acteur: " . $acteur["acteur"];
+$titre = "Détail de l'acteur: " . $acteur["identite"];
 $titre_secondaire = "Détail de l'acteur";
 $contenu = ob_get_clean();/*"ob_get_clean()" pour terminer la vue
 tout ce qui se trouve entre ces 2 fonctions(temporisation de sortie)
