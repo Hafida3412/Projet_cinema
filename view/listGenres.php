@@ -17,7 +17,7 @@ ob_start(); ?><!--pour commencer la vue-->
         <?php
             foreach($requete->fetchAll() as $genre) { ?>
                 <tr>
-                    <td><?= $genre["nom_genre"] ?></td>
+                <td><a href="index.php?action=genre&id=<?= $genre['id_genre'] ?>"><?= $genre['nom_genre'] ?></a></td>
                 </tr>
         <?php    } ?>
     </tbody>

@@ -7,9 +7,10 @@ ob_start(); ?><!--pour commencer la vue-->
 $film = $requeteFilm->fetch(); 
 echo $film["titre"];
 echo "<br>";
+
 $casting = $requeteCasting->fetchAll(); 
 foreach($casting as $cast) { 
-    echo $cast["prenom"] . " ". $cast["nom"].  " dans le rôle de  " . $cast["nom_role"]; 
+    echo "-" .$cast["prenom"] . " ". $cast["nom"].  " dans le rôle de  " . $cast["nom_role"]; 
     echo "<br>";
 }
 
