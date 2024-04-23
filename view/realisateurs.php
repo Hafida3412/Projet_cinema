@@ -5,12 +5,13 @@ ob_start(); ?><!--pour commencer la vue-->
 <?php
 
 $realisateurs = $requeteRealisateurs->fetch(); 
+echo $realisateurs["identite"] .":";
 
-// Change $film to $realisateur
 $detailRealisateurs =  $requeteDetailRealisateurs->fetchAll(); 
 foreach($detailRealisateurs as $film) { 
-    // Update the variable $film to $realisateur
-    echo " - a réalisé le film: " . $film["titre"].".";
+    echo " - a réalisé le film: " . $film["titre"]."."; 
+    echo "<br>";
+    echo "<br>";
 }
 
 ?>            
