@@ -14,13 +14,12 @@ ob_start(); ?><!--pour commencer la vue-->
         </tr>
     </thead>
     <tbody>
-        <?php
-            foreach($requete->fetchAll() as $personne) { ?>
-                <tr>
-                    <td><?= $personne["nom"] ?></td>
-                    <td><?= $personne["prenom"] ?></td>
-                </tr>
-        <?php    } ?>
+    <?php foreach($requete->fetchAll() as $personne) { ?>
+            <tr>
+                <td><a href="index.php?action=acteur&id=<?= $personne['id_personne'] ?>"><?= $personne['nom'] ?></a></td>
+                <td><?= $personne["prenom"] ?></td>
+            </tr>
+        <?php } ?>
     </tbody>
 </table>
 
