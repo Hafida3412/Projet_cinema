@@ -29,7 +29,7 @@ class CinemaController{
 
     public function listRealisateurs(){
         $pdo = Connect::seConnecter();
-        $requete = $pdo->query("SELECT nom, prenom
+        $requete = $pdo->query("SELECT personne.id_personne, nom, prenom
         FROM personne 
         inner join realisateur ON personne.id_personne = realisateur.id_personne
         ORDER BY nom ASC");
@@ -77,7 +77,7 @@ class CinemaController{
     }
     public function acteur($id){
         $pdo = Connect::seConnecter(); 
-        $requeteActeur= $pdo->prepare("SELECT acteur.id_personne, CONCAT(prenom,' ',nom) AS identite
+        $requeteActeur = $pdo->prepare("SELECT acteur.id_personne, CONCAT(prenom,' ',nom) AS identite
         FROM personne 
         INNER JOIN acteur  ON personne.id_personne = acteur.id_personne
         WHERE acteur.id_personne = :id"
@@ -96,5 +96,25 @@ class CinemaController{
        
         $requeteFilmographie->execute(["id"=> $id]);
         require "view/acteur.php";
-}
+    }
+        public function realisateurs($id){
+        $pdo = Connect::seConnecter();
+        $requeteRealisateurs = $pdo->prepare("SELECT realisateur.id_personne, CONCAT(prenom,' ',nom) AS identite
+        FROM personne 
+        INNER JOIN realisateur  ON personne.id_personne = realisateur.id_personne
+        WHERE realisateur.id_personne = :id");
+        
+        $requeteRealisateurs->execute(["id"=> $id]);
+
+        $requeteDetailRealisateurs = $pdo->prepare("SELECT film.id_film, realisateur.id_personne, film.titre
+        FROM film 
+        INNER JOIN realisateur ON film.id_realisateur = realisateur.id_realisateur
+        INNER JOIN personne ON realisateur.id_personne = personne.id_personne
+        WHERE  realisateur.id_personne = :id");
+
+        $requeteDetailRealisateurs->execute(["id"=> $id]);
+        require "view/realisateurs.php";
+
+        }
+
 }

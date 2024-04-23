@@ -30,6 +30,8 @@ if(isset($_GET["action"])){
         $ctrlCinema->acteur($id); break;
      case "listRealisateurs" : 
         $ctrlCinema->listRealisateurs(); break;
+     case "realisateurs":
+        $ctrlCinema->realisateurs($id); break;   
      case "listGenres" : 
         $ctrlCinema->listGenres(); break;
      case "listRoles" : 

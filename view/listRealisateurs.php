@@ -17,8 +17,8 @@ ob_start(); ?><!--pour commencer la vue-->
         <?php
             foreach($requete->fetchAll() as $realisateur) { ?>
                 <tr>
-                    <td><?= $realisateur["nom"] ?></td>
-                    <td><?= $realisateur["prenom"] ?></td>
+                <td><a href="index.php?action=realisateurs&id=<?= $realisateur['id_personne'] ?>"><?= $realisateur['nom'] ?></a></td>
+                <td><?= $realisateur["prenom"] ?></td>
                 </tr>
         <?php    } ?>
     </tbody>
