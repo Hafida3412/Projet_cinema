@@ -15,8 +15,8 @@
                 <li><a href="index.php?action=listRealisateurs">realisateurs</a></li>
                 <li><a href="index.php?action=listGenres">genres</a></li>
                 <li><a href="index.php?action=listRoles">roles</a></li>
-                            </ul>
-              </nav>
+    </ul>
+    </nav>
 <div id="wrapper" class="uk-container uk-container-expand">
     <main>
         <div id="contenu">

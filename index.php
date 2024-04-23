@@ -17,7 +17,8 @@ $ctrlCinema = new CinemaController();
 /*En fonction de l'action détectée dans l'URL via la propriété "action"
 on interagit avec la bonne méthode du controller*/
 if(isset($_GET["action"])){
-    switch ($_GET["action"]){
+    switch ($_GET["action"])
+   {
      //Film
      case "listFilms" : 
         $ctrlCinema->listFilms(); break;
@@ -25,13 +26,13 @@ if(isset($_GET["action"])){
         $ctrlCinema->film($id); break;    
      case "listActeurs" : 
         $ctrlCinema->listActeurs(); break;
-        case "listRealisateurs" : 
+     case "listRealisateurs" : 
         $ctrlCinema->listRealisateurs(); break;
-        case "listGenres" : 
+     case "listGenres" : 
         $ctrlCinema->listGenres(); break;
-        case "listRoles" : 
+     case "listRoles" : 
         $ctrlCinema->listRoles(); break;
-                      }
+   }
 }
 
 /*Quand vous faîtes une requête dans lequel on a un élément variable(

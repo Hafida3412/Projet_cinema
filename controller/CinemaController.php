@@ -12,7 +12,7 @@ class CinemaController{
         //On se connecte
         $pdo = Connect::seConnecter();
         //On exécute la requête de notre choix
-        $requete = $pdo->query("SELECT titre, annee_sortie_france FROM film
+        $requete = $pdo->query("SELECT id_film, titre, annee_sortie_france FROM film
         ORDER BY annee_sortie_france DESC");
 
         //On relie par un "require" la vue qui nous intéresse (située dans le dossier "view")
@@ -53,17 +53,27 @@ class CinemaController{
 
     public function film($id){
         $pdo = Connect::seConnecter(); 
-        $requete = $pdo->prepare("SELECT titre, annee_sortie_france,
-        TIME_FORMAT(SEC_TO_TIME(duree_minutes*60), '%H:%i')
-        , nom, prenom FROM film 
+        $requeteFilm = $pdo->prepare("SELECT id_film, titre, annee_sortie_france,
+        TIME_FORMAT(SEC_TO_TIME(duree_minutes*60), '%H:%i') ,
+        CONCAT(nom, ' ', prenom) AS realisateur, note FROM film 
         INNER JOIN realisateur 
         ON film.id_realisateur = realisateur.id_realisateur 
         INNER JOIN personne 
         ON personne.id_personne = realisateur.id_personne 
-        WHERE film.id_film = :id"); 
+        WHERE id_film = :id");
 
-        $requete->execute( ["id" => $id] );
+        $requeteFilm->execute( ["id" => $id] );
+             
+        $requeteCasting = $pdo->prepare("SELECT personne.nom, personne.prenom, 
+        role.nom_role FROM jouer 
+        INNER JOIN acteur ON jouer.id_acteur = acteur.id_acteur
+        INNER JOIN personne ON acteur.id_personne = personne.id_personne 
+        INNER JOIN role ON jouer.id_role = role.id_role 
+        WHERE jouer.id_film = :id");
+
+        $requeteCasting->execute( ["id" => $id] );
         require "view/film.php"; 
+
     }
 
 }

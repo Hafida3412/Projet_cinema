@@ -14,13 +14,16 @@ ob_start(); ?><!--pour commencer la vue-->
         </tr>
     </thead>
     <tbody>
-        <?php
-            foreach($requete->fetchAll() as $film) { ?>
-                <tr>
-                    <td><?= $film["titre"] ?></td>
-                    <td><?= $film["annee_sortie_france"] ?></td>
-                </tr>
-        <?php    } ?>
+    <?php
+            foreach($requete->fetchAll() as $film) {
+        ?> 
+        <tr> 
+        <td><a href="index.php?action=film&id=<?= $film['id_film'] ?>"><?= $film['titre'] ?></a></td>
+            <td><?= $film['annee_sortie_france'] ?></td>
+        </tr>
+        <?php 
+            }
+        ?>
     </tbody>
 </table>
 
