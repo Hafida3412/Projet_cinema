@@ -5,7 +5,7 @@ ob_start(); ?><!--pour commencer la vue-->
 <?php
 
 $realisateurs = $requeteRealisateurs->fetch(); 
-echo "- Nom:" .$realisateurs["identite"] .":";
+echo "- Nom: " .$realisateurs["identite"];
 echo "<br>";
 
 

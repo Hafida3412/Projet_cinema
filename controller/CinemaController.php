@@ -55,7 +55,7 @@ class CinemaController{
         $pdo = Connect::seConnecter(); 
         $requeteFilm = $pdo->prepare("SELECT id_film, titre, annee_sortie_france,
         TIME_FORMAT(SEC_TO_TIME(duree_minutes*60), '%H:%i') AS duree,
-        CONCAT(nom, ' ', prenom) AS realisateur, note FROM film 
+        CONCAT(nom, ' ', prenom) AS realisateur, note, synopsis, affiche FROM film 
         INNER JOIN realisateur 
         ON film.id_realisateur = realisateur.id_realisateur 
         INNER JOIN personne 
@@ -87,7 +87,7 @@ class CinemaController{
         $requeteActeur->execute(["id" => $id]);
        
         $requeteFilmographie = $pdo->prepare("SELECT film.id_film, role.id_role, role.nom_role AS nomRole,
-        film.titre, film.annee_sortie_france, note
+        film.titre, personne.sexe, personne.date_naissance
         FROM film 
         INNER JOIN jouer ON jouer.id_film = film.id_film
         INNER JOIN acteur ON jouer.id_acteur = acteur.id_acteur

@@ -5,13 +5,25 @@ ob_start(); ?><!--pour commencer la vue-->
 <?php
 
 $film = $requeteFilm->fetch(); 
-echo"Titre du film: " .$film["titre"]." ";
-echo "(durée: " .$film["duree"]. "min)";
+
+?>
+
+<h1>Titre du film : <?= $film["titre"] ?></h1>
+<p> Durée du film : <?= $film["duree"] ?></p>
+<p> Réalisateur: <?= $film["realisateur"] ?></p>
+
+<?php
+
 echo "<br>";
-echo "Réalisateur: ".$film["realisateur"];
+echo "<img src=".$film['affiche']." />";
 echo "<br>";
 echo "Note: ".$film["note"]. "/5";
 echo "<br>";
+echo "<br>";
+echo "Synopsis: ".$film["synopsis"];
+echo "<br>";
+echo "<br>";
+
 
 $casting = $requeteCasting->fetchAll(); 
 foreach($casting as $cast) { 
