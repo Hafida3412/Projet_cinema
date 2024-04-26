@@ -27,7 +27,7 @@ echo "<br>";
 
 $casting = $requeteCasting->fetchAll(); 
 foreach($casting as $cast) { 
-echo "<p>- Acteur: <a href='index.php?action=acteur&id=".$cast['id_acteur']."'>".$cast["prenom"]." ".$cast["nom"]."</a></p>";
+echo "<p>- Acteur: <a href='index.php?action=acteur&id=".$cast['id_acteur']."'>".$cast["identite"]."</a></p>";
 echo "<p>- Rôle: ".$cast["nom_role"]."</p>"; 
 echo "<br>"; 
 }

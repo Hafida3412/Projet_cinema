@@ -64,7 +64,7 @@ class CinemaController{
 
         $requeteFilm->execute( ["id" => $id] );
              
-        $requeteCasting = $pdo->prepare("SELECT acteur.id_acteur, personne.nom, personne.prenom, 
+        $requeteCasting = $pdo->prepare("SELECT acteur.id_acteur, CONCAT(prenom,' ',nom) AS identite, 
         role.nom_role FROM jouer 
         INNER JOIN acteur ON jouer.id_acteur = acteur.id_acteur
         INNER JOIN personne ON acteur.id_personne = personne.id_personne 
@@ -77,7 +77,7 @@ class CinemaController{
     }
     public function acteur($id){
         $pdo = Connect::seConnecter(); 
-        $requeteActeur = $pdo->prepare("SELECT acteur.id_personne, CONCAT(prenom,' ',nom) AS identite,
+        $requeteActeur = $pdo->prepare("SELECT acteur.id_acteur, acteur.id_personne, CONCAT(prenom,' ',nom) AS identite,
         personne.sexe, personne.date_naissance
         FROM personne 
         INNER JOIN acteur  ON personne.id_personne = acteur.id_personne
@@ -86,8 +86,8 @@ class CinemaController{
         );
 
         $requeteActeur->execute(["id" => $id]);
-       
-        $requeteFilmographie = $pdo->prepare("SELECT film.id_film, role.id_role, role.nom_role AS nomRole,
+    
+        $requeteFilmographie = $pdo->prepare("SELECT acteur.id_acteur, film.id_film, role.id_role, role.nom_role AS nomRole,
         film.titre
         FROM film 
         INNER JOIN jouer ON jouer.id_film = film.id_film
