@@ -7,6 +7,7 @@ ob_start(); ?><!--pour commencer la vue-->
 $realisateurs = $requeteRealisateurs->fetch(); 
 echo "- Nom: " .$realisateurs["identite"];
 echo "<br>";
+echo "<br>";
 
 
 $detailRealisateurs =  $requeteDetailRealisateurs->fetchAll(); 
@@ -14,10 +15,6 @@ foreach($detailRealisateurs as $film) {
     echo "- Titre du film réalisé: " . $film["titre"]."."; 
     echo "<br>";
     echo "- Durée: " .$film["duree"] ."min.";
-    echo "<br>";
-    echo "- Année de sortie en France: ".$film["annee_sortie_france"];
-    echo "<br>";
-    echo "- Note: " .$film["note"]. "/5";
     echo "<br>";
     echo "<br>";
 }

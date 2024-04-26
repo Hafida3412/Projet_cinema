@@ -12,11 +12,8 @@ $detailRole = $requeteDetailRole->fetchAll();
 foreach($detailRole as $film) { 
     echo " - Acteur : " . $film["acteur"];  
     echo "<br>";
+    echo "<br>";
     echo "- Film : " . $film["film"]  . "<br> "; 
-    echo "- Année de sortie en France: ". $film["annee_sortie_france"];
-    echo "<br>";
-    echo "- Note: ". $film["note"];
-    echo "<br>";
     echo "<br>";
 }
 

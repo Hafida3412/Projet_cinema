@@ -7,16 +7,11 @@ ob_start(); ?><!--pour commencer la vue-->
 $genre = $requeteGenre->fetch(); 
 echo "- Genre:" .$genre["nom_genre"] .":";
 echo "<br>";
+echo "<br>";
 
 $detailGenre =  $requeteDetailGenre->fetchAll(); 
 foreach($detailGenre as $film) { 
     echo "- Titre du film: " . $film["titre"]."."; 
-    echo "<br>";
-    echo "- Durée: ".$film["duree"]. "min.";
-    echo "<br>";
-    echo "- Année de sortie en France: ".$film["annee_sortie_france"];
-    echo "<br>";
-    echo "- Note: ".$film["note"]. "/5";
     echo "<br>";
     echo "<br>";
     
