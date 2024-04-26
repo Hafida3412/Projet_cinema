@@ -12,7 +12,7 @@ class CinemaController{
         //On se connecte
         $pdo = Connect::seConnecter();
         //On exécute la requête de notre choix
-        $requete = $pdo->query("SELECT titre, annee_sortie_france FROM film
+        $requete = $pdo->query("SELECT film.id_film, titre, annee_sortie_france FROM film
         ORDER BY annee_sortie_france DESC");
 
         //On relie par un "require" la vue qui nous intéresse (située dans le dossier "view")
@@ -165,5 +165,27 @@ class CinemaController{
 
         $requeteDetailRole->execute(["id"=> $id]);
         require "view/role.php";
-    }   
+    }  
+    
+    public function ajouterGenre(){ 
+        if(isset($_POST['submit'])){
+            // Filtrer et récupérer la valeur de 'nom_genre'
+            $nom_genre = filter_input(INPUT_POST, 'nom_genre', FILTER_SANITIZE_STRING);
+
+            // Vérifier si $nom_genre est une chaîne de caractères
+            if(!is_string($nom_genre)){
+                echo "<script>alert('Le nom du genre doit être une chaîne de caractères. Veuillez entrer une valeur valide.');</script>";
+                return; // Arrêter l'exécution de la fonction
+            }
+            
+            if(!empty($nom_genre)){
+                $pdo = Connect::seConnecter(); 
+                $requeteAjouterGenre = $pdo->prepare("INSERT INTO genre (nom_genre) VALUES (:nom_genre)"); 
+    
+                $requeteAjouterGenre->execute(['nom_genre' => $nom_genre]); 
+                header("Location: index.php?action=listGenres");
+            } 
+        }
+    }
+    
 }

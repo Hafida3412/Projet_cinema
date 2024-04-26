@@ -2,6 +2,11 @@
 
 ob_start(); ?><!--pour commencer la vue-->
 
+<form action="index.php?action=ajouterGenre" method="post">
+    <label for="nom_genre">Nom du genre:</label>
+    <input type="text" id="nom_genre" name="nom_genre">
+    <button type="submit">Ajouter le genre</button>
+</form>
 
 <p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount() ?> genres cinématographiques</p>
 
