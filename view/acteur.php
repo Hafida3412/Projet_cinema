@@ -21,7 +21,6 @@ foreach($filmographie as $film) {
     echo "<br>";
  }
 
-
 ?>            
 <?php
 
