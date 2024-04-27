@@ -171,13 +171,7 @@ class CinemaController{
         if(isset($_POST['submit'])){
             // Filtrer et récupérer la valeur de 'nom_genre'
             $nom_genre = filter_input(INPUT_POST, 'nom_genre', FILTER_SANITIZE_STRING);
-
-            // Vérifier si $nom_genre est une chaîne de caractères
-            if(!is_string($nom_genre)){
-                echo "<script>alert('Le nom du genre doit être une chaîne de caractères. Veuillez entrer une valeur valide.');</script>";
-                return; // Arrêter l'exécution de la fonction
-            }
-            
+    
             if(!empty($nom_genre)){
                 $pdo = Connect::seConnecter(); 
                 $requeteAjouterGenre = $pdo->prepare("INSERT INTO genre (nom_genre) VALUES (:nom_genre)"); 
