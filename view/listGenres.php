@@ -1,12 +1,13 @@
 <?php 
 
 ob_start(); ?><!--pour commencer la vue-->
+<form action="index.php?action=ajouterGenre" method="post"> 
+    <input type="hidden" name="action" value="ajouterGenre">
+     <label for="nom_genre">Nom du genre:</label> 
+     <input type="text" id="nom_genre" name="nom_genre"> 
+     <button type="submit" name="submit">Ajouter le genre</button> </form>
 
-<form action="index.php?action=ajouterGenre" method="post">
-    <label for="nom_genre">Nom du genre:</label>
-    <input type="text" id="nom_genre" name="nom_genre">
-    <button type="submit">Ajouter le genre</button>
-</form>
+
 
 <p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount() ?> genres cinématographiques</p>
 
@@ -23,6 +24,12 @@ ob_start(); ?><!--pour commencer la vue-->
             foreach($requete->fetchAll() as $genre) { ?>
                 <tr>
                 <td><a href="index.php?action=genre&id=<?= $genre['id_genre'] ?>"><?= $genre['nom_genre'] ?></a></td>
+                <td>
+                <form action="index.php?action=supprimerGenre&id=<?= $genre['id_genre'] ?>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit">Supprimer</button>
+</form>
+  </td>
                 </tr>
         <?php    } ?>
     </tbody>

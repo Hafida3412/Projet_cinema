@@ -168,18 +168,39 @@ class CinemaController{
     }  
     
     public function ajouterGenre(){ 
-        if(isset($_POST['submit'])){
-            // Filtrer et récupérer la valeur de 'nom_genre'
-            $nom_genre = filter_input(INPUT_POST, 'nom_genre', FILTER_SANITIZE_STRING);
+        session_start(); // Démarrer la session
+        if(isset($_POST['nom_genre'])){ 
+            $pdo = Connect::seConnecter(); 
+            $ajouterGenre = $pdo->prepare("INSERT INTO genre (nom_genre) VALUES (:nom_genre)"); 
+            $resultat = $ajouterGenre->execute(['nom_genre' => $_POST['nom_genre']]);
+            
+            if($resultat){
+                $_SESSION['message'] = "Le genre a été ajouté avec succès.";
+            } else {
+                $_SESSION['erreur'] = "Une erreur s'est produite lors de l'ajout du genre.";
+            }
+            
+            header("Location: index.php?action=listGenres");
+
+            exit();
+        } 
+    }
+
+    public function supprimerGenre(){
+        session_start();
     
-            if(!empty($nom_genre)){
-                $pdo = Connect::seConnecter(); 
-                $requeteAjouterGenre = $pdo->prepare("INSERT INTO genre (nom_genre) VALUES (:nom_genre)"); 
+        if ($_SERVER['REQUEST_METHOD'] === 'DELETE' && isset($_GET['id'])){
+            $pdo = Connect::seConnecter();
+            $supprimerGenre = $pdo->prepare("DELETE FROM genre WHERE id_genre = :id_genre");
+            $resultat = $supprimerGenre->execute(['id_genre' => $_GET['id']]);
     
-                $requeteAjouterGenre->execute(['nom_genre' => $nom_genre]); 
-                header("Location: index.php?action=listGenres");
-            } 
+            if($resultat){
+                echo "Le genre a été supprimé avec succès.";
+            } else {
+                echo "Une erreur s'est produite lors de la suppression du genre.";
+            }
+    
+            exit();
         }
     }
-    
 }
