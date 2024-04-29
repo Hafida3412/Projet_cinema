@@ -186,21 +186,7 @@ class CinemaController{
         } 
     }
 
-    public function supprimerGenre(){
-        session_start();
     
-        if ($_SERVER['REQUEST_METHOD'] === 'DELETE' && isset($_GET['id'])){
-            $pdo = Connect::seConnecter();
-            $supprimerGenre = $pdo->prepare("DELETE FROM genre WHERE id_genre = :id_genre");
-            $resultat = $supprimerGenre->execute(['id_genre' => $_GET['id']]);
-    
-            if($resultat){
-                echo "Le genre a été supprimé avec succès.";
-            } else {
-                echo "Une erreur s'est produite lors de la suppression du genre.";
-            }
-    
-            exit();
-        }
+  
     }
-}
+

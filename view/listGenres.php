@@ -1,5 +1,11 @@
 <?php 
+session_start();
 
+$message = "";
+if(isset($_SESSION['message'])) {
+    $message = $_SESSION['message'];
+    unset($_SESSION['message']); // Effacer le message pour ne pas l'afficher à nouveau
+}
 ob_start(); ?><!--pour commencer la vue-->
 <form action="index.php?action=ajouterGenre" method="post"> 
     <input type="hidden" name="action" value="ajouterGenre">
@@ -11,6 +17,12 @@ ob_start(); ?><!--pour commencer la vue-->
 
 <p class="uk-label uk-label-warning">Il y a <?= $requete->rowCount() ?> genres cinématographiques</p>
 
+<?php if($message !== "") { ?>
+    <div class="uk-alert-success" uk-alert>
+        <a class="uk-alert-close" uk-close></a>
+        <p><?= $message ?></p>
+    </div>
+<?php } ?>
 
 <table class="uk-table uk-table-striped">
    <thead>
@@ -24,12 +36,7 @@ ob_start(); ?><!--pour commencer la vue-->
             foreach($requete->fetchAll() as $genre) { ?>
                 <tr>
                 <td><a href="index.php?action=genre&id=<?= $genre['id_genre'] ?>"><?= $genre['nom_genre'] ?></a></td>
-                <td>
-                <form action="index.php?action=supprimerGenre&id=<?= $genre['id_genre'] ?>" method="POST">
-    <input type="hidden" name="_method" value="DELETE">
-    <button type="submit">Supprimer</button>
-</form>
-  </td>
+                
                 </tr>
         <?php    } ?>
     </tbody>
