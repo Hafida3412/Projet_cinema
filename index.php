@@ -38,8 +38,11 @@ if(isset($_GET["action"])){
         $ctrlCinema->genre($id); break;
      case "ajouterGenre":
         $ctrlCinema->ajouterGenre(); break;
-     /*case "supprimerGenre":
-     $ctrlCinema->supprimerGenre();break;*/
+        case "supprimerGenre":
+         if(isset($_GET['id'])){
+             $ctrlCinema->supprimerGenre($_GET['id']);
+         }
+         break;
      case "listRoles" : 
         $ctrlCinema->listRoles(); break;
      case "role" : 

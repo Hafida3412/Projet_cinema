@@ -36,7 +36,8 @@ ob_start(); ?><!--pour commencer la vue-->
             foreach($requete->fetchAll() as $genre) { ?>
                 <tr>
                 <td><a href="index.php?action=genre&id=<?= $genre['id_genre'] ?>"><?= $genre['nom_genre'] ?></a></td>
-                
+                <td><a href="index.php?action=supprimerGenre&id=<?= $genre['id_genre'] ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce genre ?')"><button>Supprimer</button></a></td>
+    </tr>
                 </tr>
         <?php    } ?>
     </tbody>
