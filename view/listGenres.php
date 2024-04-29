@@ -43,8 +43,8 @@ ob_start(); ?><!--pour commencer la vue-->
     </tbody>
 </table>
 
-<?php
 
+<?php
 $titre = "Liste des genres cinématographiques";
 $titre_secondaire = "Liste des genres cinématographiques";
 $contenu = ob_get_clean();/*"ob_get_clean()" pour terminer la vue
