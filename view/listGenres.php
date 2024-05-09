@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-$message = "";
+$message = "Le genre a été ajouté avec succès.";
 if(isset($_SESSION['message'])) {
     $message = $_SESSION['message'];
     unset($_SESSION['message']); // Effacer le message pour ne pas l'afficher à nouveau
