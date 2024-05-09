@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!------------------------------------------META DESCRIPTION------------------------------------------->
+    <meta name="description" content="Retrouvez toute l'actualité cinéma, les bandes-annonces, les sorties, les critiques et les classements des films et séries.
+    Retrouvez toute l'actualité cinéma, les bandes-annonces, les sorties, les critiques et les classements des films et séries">
     <link rel="stylesheet" href="styles.css">
     <title><?= $titre ?></title>
 </head>
