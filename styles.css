@@ -6,7 +6,7 @@ body {
 }
 
 nav {
-    background-color: #333;
+    background-color: #140666fb;
     color: white;
     text-align: center;
     padding: 10px;
@@ -33,12 +33,12 @@ nav ul li a {
 }
 
 h1 {
-    color: #333;
+    color: #140666fb;
     text-align: center;
 }
 
 h2 {
-    color: #555;
+    color: #140666fb;
 }
 
 .uk-heading-divider {
@@ -67,7 +67,7 @@ h2 {
     }
 
     nav {
-        background-color: #333;
+        background-color: #140666fb;
         color: white;
         text-align: center;
         padding: 10px;
@@ -95,12 +95,12 @@ h2 {
     }
 
     h1 {
-        color: #333;
+        color: #140666fb;
         text-align: center;
     }
 
     h2 {
-        color: #555;
+        color: #140666fb;
     }
 
     .uk-heading-divider {
