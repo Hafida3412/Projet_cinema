@@ -15,7 +15,7 @@ $film = $requeteFilm->fetch();
 <?php
 
 echo "<br>";
-echo "<img src=".$film['affiche']." />";
+echo "<img src=".$film['affiche']." alt='".$film['titre']."' />";
 echo "<br>";
 echo "Note: ".$film["note"]. "/5";
 echo "<br>";
