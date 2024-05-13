@@ -11,13 +11,20 @@ echo "<br>";
 
 
 $detailRealisateurs =  $requeteDetailRealisateurs->fetchAll(); 
+
+echo "<table>";
+echo "<tr><th>Titre du film</th><th>Durée</th></tr>";
 foreach($detailRealisateurs as $film) { 
-    echo "- Titre du film réalisé: " . $film["titre"]."."; 
-    echo "<br>";
-    echo "- Durée: " .$film["duree"] ."min.";
-    echo "<br>";
-    echo "<br>";
+    echo "<tr>";
+    echo "<td>" .$film["titre"] . "</td>";
+    echo "<td>" .$film["duree"] . "min"."</td>";
+    echo "</tr>";
 }
+echo "</table>";
+   
+echo "<style>";
+echo "th, td { border: 1px solid black; text-align: left; }";
+echo "</style>";
 
 ?>            
 <?php

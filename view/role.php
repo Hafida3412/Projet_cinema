@@ -7,17 +7,23 @@ ob_start(); ?><!--pour commencer la vue-->
 $role = $requeteRole->fetch(); 
 echo "- Rôle: ".$role["nom_role"];
 echo "<br>";
+echo "<br>";
 
 $detailRole = $requeteDetailRole->fetchAll(); 
-foreach($detailRole as $film) { 
-    echo " - Acteur : " . $film["acteur"];  
-    echo "<br>";
-    echo "<br>";
-    echo "- Film : " . $film["film"]  . "<br> "; 
-    echo "<br>";
+
+echo "<table>";
+echo "<tr><th>Acteur</th><th>Film</th></tr>";
+foreach($detailRole as $film) {
+    echo "<tr>";
+    echo "<td>" .$film['acteur'] . "</td>";
+    echo "<td>" . $film["film"] . "</td>";
+    echo "</tr>";
 }
+echo "</table>";
 
-
+echo "<style>";
+echo "th, td { border: 1px solid black; text-align: left; }";
+echo "</style>";
 
 $titre = "Détail des rôles : " . $role["nom_role"];
 $titre_secondaire = "Détail des rôles";

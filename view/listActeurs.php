@@ -25,6 +25,10 @@ ob_start(); ?><!--pour commencer la vue-->
 
 <?php
 
+echo "<style>";
+echo "th, td { border: 1px solid black; text-align: left; }";
+echo "</style>";
+
 $titre = "Liste des acteurs";
 $titre_secondaire = "Liste des acteurs";
 $contenu = ob_get_clean();/*"ob_get_clean()" pour terminer la vue

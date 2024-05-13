@@ -26,12 +26,20 @@ echo "<br>";
 
 
 $casting = $requeteCasting->fetchAll(); 
-foreach($casting as $cast) { 
-echo "<p>- Acteur: <a href='index.php?action=acteur&id=".$cast['id_acteur']."'>".$cast["identite"]."</a></p>";
-echo "<p>- Rôle: ".$cast["nom_role"]."</p>"; 
-echo "<br>"; 
-}
 
+echo "<table>";
+echo "<tr><th>Acteur</th><th>Rôle</th></tr>";
+foreach($casting as $cast) {
+    echo "<tr>";
+    echo "<td><a href='index.php?action=acteur&id=" . $cast['id_acteur'] . "'>" . $cast["identite"] . "</a></td>";
+    echo "<td>" . $cast["nom_role"] . "</td>";
+    echo "</tr>";
+}
+echo "</table>";
+
+echo "<style>";
+echo "th, td { border: 1px solid black; text-align: left; }";
+echo "</style>";
 ?>            
 <?php
 
