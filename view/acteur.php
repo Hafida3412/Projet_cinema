@@ -14,12 +14,19 @@ echo "<br>";
 echo "<br>";
 
 $filmographie = $requeteFilmographie->fetchAll(); 
+echo "<table>";
+echo "<tr><th>Rôle</th><th>Titre du film</th></tr>";
 foreach($filmographie as $film) { 
-    echo " - Rôle: " .$film["nomRole"];
-    echo "<br>";
-    echo " - Titre du film: " . $film["titre"]."."; 
-    echo "<br>";
- }
+    echo "<tr>";
+    echo "<td>" .$film['nomRole'] . "</td>";
+    echo "<td>" . $film["titre"] . "</td>";
+    echo "</tr>";
+}
+echo "</table>";
+
+echo "<style>";
+echo "th, td { border: 1px solid black; text-align: left; }";
+echo "</style>";
 
 ?>            
 <?php

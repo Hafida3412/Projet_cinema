@@ -15,7 +15,7 @@ echo "<table>";
 echo "<tr><th>Acteur</th><th>Film</th></tr>";
 foreach($detailRole as $film) {
     echo "<tr>";
-    echo "<td>" .$film['acteur'] . "</td>";
+    echo "<td>" .$film["acteur"] . "</td>";
     echo "<td>" . $film["film"] . "</td>";
     echo "</tr>";
 }
