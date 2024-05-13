@@ -25,7 +25,7 @@ echo "<style>";
 echo "th, td { border: 1px solid black; text-align: left; }";
 echo "</style>";
 
-$titre = "Détail des rôles : " . $role["nom_role"];
+$titre = "Détail des rôles : " ;
 $titre_secondaire = "Détail des rôles";
 $contenu = ob_get_clean();/*"ob_get_clean()" pour terminer la vue
 tout ce qui se trouve entre ces 2 fonctions(temporisation de sortie)

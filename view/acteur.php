@@ -5,6 +5,7 @@ ob_start(); ?><!--pour commencer la vue-->
 <?php
 
 $acteur = $requeteActeur->fetch(); 
+
 echo "- Acteur: ".$acteur["identite"];
 echo "<br>";
 echo "- Date de naissance: ".$acteur["date_naissance"];
@@ -18,7 +19,7 @@ echo "<table>";
 echo "<tr><th>Rôle</th><th>Titre du film</th></tr>";
 foreach($filmographie as $film) { 
     echo "<tr>";
-    echo "<td>" .$film['nomRole'] . "</td>";
+    echo "<td>" .$film['nomRole'] ."</td>";
     echo "<td>" . $film["titre"] . "</td>";
     echo "</tr>";
 }
