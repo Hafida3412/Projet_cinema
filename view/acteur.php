@@ -32,7 +32,7 @@ echo "</style>";
 ?>            
 <?php
 
-$titre = "Détail de l'acteur: " . $acteur["identite"];
+$titre = "Détail de l'acteur: ";
 $titre_secondaire = "Détail de l'acteur";
 $contenu = ob_get_clean();/*"ob_get_clean()" pour terminer la vue
 tout ce qui se trouve entre ces 2 fonctions(temporisation de sortie)
