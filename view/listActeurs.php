@@ -8,7 +8,6 @@ ob_start(); ?><!--pour commencer la vue-->
     <!-- Affichage du nombre d'acteurs trouvés dans la requête -->
     Il y a <?= $requete->rowCount() ?> acteurs</p>
 
-
 <table class="uk-table uk-table-striped">
    <thead>
         <tr>
@@ -17,6 +16,7 @@ ob_start(); ?><!--pour commencer la vue-->
         </tr>
     </thead>
     <tbody>
+    <!-- Boucle à travers chaque 'personne' est retournée par la requête-->
     <?php foreach($requete->fetchAll() as $personne) { ?>
             <tr>
                 <!-- Lien vers la page de l'acteur avec son ID et affichage du nom -->

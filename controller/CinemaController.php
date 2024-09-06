@@ -1,7 +1,9 @@
 <?php
 
 namespace Controller;
-//Utilisation de "use" pour accéder à la classe Connect située dans le namespace "Model"
+/*Utilisation de "use" pour accéder à la classe Connect 
+située dans le namespace "Model"*/
+
 use Model\Connect;
 
 class CinemaController{
@@ -12,18 +14,25 @@ class CinemaController{
         //On se connecte
         $pdo = Connect::seConnecter();
         //On exécute la requête de notre choix
-        $requete = $pdo->query("SELECT film.id_film, titre, annee_sortie_france FROM film
+        $requete = $pdo->query("SELECT film.id_film, titre, annee_sortie_france 
+        FROM film
         ORDER BY annee_sortie_france DESC");
 
-        //On relie par un "require" la vue qui nous intéresse (située dans le dossier "view")
+        /*On relie par un "require" la vue qui nous intéresse (située dans 
+        le dossier "view")*/
         require "view/listFilms.php";
     }
     
     public function listActeurs(){
+        //on se connecte à la base de données
         $pdo = Connect::seConnecter();
+        
+        // On prépare la requête SQL pour récupérer tous les acteurs
         $requete = $pdo->query("SELECT acteur.id_acteur, personne.id_personne, nom, prenom
         FROM personne 
-        inner join acteur ON personne.id_personne = acteur.id_personne ORDER BY nom ASC");
+        inner join acteur ON personne.id_personne = acteur.id_personne 
+        ORDER BY nom ASC");
+        // On inclut la vue qui affiche la liste des acteurs
        require "view/listActeurs.php";
        }
 
