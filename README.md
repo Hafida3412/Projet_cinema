@@ -16,6 +16,6 @@
 <br>
 <br>
 <br>
-<p align="left">Le résultat de l'exercice:</p>
+<p align="left">La maquette</p>
 <br>
-<img width="845" alt="image" src="https://github.com/Hafida3412/Projet_cinema/assets/160515207/cc2b04c8-f949-4b4d-a3eb-03e66f44b16c">
+<img width="236" alt="image" src="https://github.com/user-attachments/assets/7c4fc5d0-5227-4df2-b231-847da71ab084">
